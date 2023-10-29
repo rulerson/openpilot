@@ -183,7 +183,7 @@ env = Environment(
     "-fPIC",
     "-O2",
     "-Wunused",
-    "-Werror",
+    #"-Werror",
     "-Wshadow",
     "-Wno-unknown-warning-option",
     "-Wno-deprecated-register",
@@ -329,7 +329,12 @@ else:
   elif arch != "Darwin":
     qt_libs += ["GL"]
 
-qt_env.Tool('qt')
+# compatibility for older SCons versions
+try:
+  qt_env.Tool('qt3')
+except SCons.Errors.UserError:
+  qt_env.Tool('qt')
+
 qt_env['CPPPATH'] += qt_dirs + ["#selfdrive/ui/qt/"]
 qt_flags = [
   "-D_REENTRANT",

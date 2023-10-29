@@ -6,7 +6,7 @@ from parameterized import parameterized
 from cereal import log, car
 import cereal.messaging as messaging
 from common.params import Params
-from selfdrive.boardd.boardd_api_impl import can_list_to_can_capnp # pylint: disable=no-name-in-module,import-error
+from selfdrive.boardd.boardd import can_list_to_can_capnp # pylint: disable=no-name-in-module,import-error
 from selfdrive.car.fingerprints import _FINGERPRINTS
 from selfdrive.car.toyota.values import CAR as TOYOTA
 from selfdrive.car.mazda.values import CAR as MAZDA
